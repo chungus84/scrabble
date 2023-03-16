@@ -7,4 +7,12 @@ letters_to_points = {letter: point for letter, point in zip(letters, points)}
 # add key:value for blank tile
 letters_to_points[" "] = 0
 
-print(letters_to_points)
+def score_word(word):
+    """takes a single parameter 'word' and calculates how much that word is
+    worth comparing to letters_to_points dictionary"""
+    point_total = 0
+    for letter in word.upper():
+        point_total += letters_to_points[letter]
+    return point_total
+
+print(score_word("Hello"))
