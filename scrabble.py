@@ -3,6 +3,17 @@ import string
 letters = list(string.ascii_uppercase)
 points = [1, 3, 3, 2, 1, 4, 2, 4, 1, 8, 5, 1, 3, 4, 1, 3, 10, 1, 1, 1, 1, 4, 4, 8, 4, 10]
 
+# Tracks the words from each player
+player_to_words = {
+    "player1": ["BLUE", "TENNIS", "EXIT"],
+    "wordNerd": ["EARTH", "EYES", "MACHINE"],
+    "Lexi Con": ["ERASER", "BELLY", "HUSKY"],
+    "Prof Reader": ["ZAP", "COMA", "PERIOD"]
+}
+
+# Tracks the points for each player
+player_to_points = {}
+
 # combines letters and points into a dictionary
 letters_to_points = {letter: point for letter, point in zip(letters, points)}
 
@@ -17,12 +28,6 @@ def score_word(word):
         point_total += letters_to_points.get(letter, 0)
     return point_total
 
-player_to_words = {
-    "player1": ["BLUE", "TENNIS", "EXIT"],
-    "wordNerd": ["EARTH", "EYES", "MACHINE"],
-    "Lexi Con": ["ERASER", "BELLY", "HUSKY"],
-    "Prof Reader": ["ZAP", "COMA", "PERIOD"]
-}
 
 def play_word(player, word):
     """takes 2 arguments and either adds a word to the current list of an existing player
@@ -33,10 +38,6 @@ def play_word(player, word):
         player_to_words[player] = [word]
     return update_points_total()
 
-
-
-
-player_to_points = {}
 
 def update_points_total():
     """updates the points totals in player_to_points when called"""
@@ -49,10 +50,6 @@ def update_points_total():
 
 
 
-print(player_to_words)
-
-print(player_to_points)
-
 print(update_points_total())
 
 print(play_word("player1", "SNAKE"))
@@ -63,7 +60,3 @@ print(play_word("newPlayer", "dogs"))
 # brownie_points = score_word("Brownie")
 
 # print(brownie_points)
-
-print(player_to_words)
-
-print(letters)
