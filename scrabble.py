@@ -22,22 +22,41 @@ player_to_words = {
     "Prof Reader": ["ZAP", "COMA", "PERIOD"]
 }
 
+def play_word(player, word):
+    if player in player_to_words:
+        player_to_words[player].append(word.upper())
+    else:
+        player_to_words[player] = [word]
+    return update_points_total()
+
+
+
 
 player_to_points = {}
 
-for player, words in player_to_words.items():
-    player_points = 0
-    for word in words:
-        player_points += score_word(word)
-    player_to_points[player] = player_points
+def update_points_total():
+    for player, words in player_to_words.items():
+        player_points = 0
+        for word in words:
+            player_points += score_word(word)
+        player_to_points[player] = player_points
+    return player_to_points
+
+
+
+print(player_to_words)
 
 print(player_to_points)
 
+print(update_points_total())
 
+print(play_word("player1", "SNAKE"))
+print(play_word("newPlayer", "SPIDER"))
+print(play_word("newPlayer", "dogs"))
 
 # testing the score_words function
 # brownie_points = score_word("Brownie")
 
 # print(brownie_points)
 
-# print(player_to_words)
+print(player_to_words)
