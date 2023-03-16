@@ -1,4 +1,6 @@
-letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
+import string
+
+letters = list(string.ascii_uppercase)
 points = [1, 3, 3, 2, 1, 4, 2, 4, 1, 8, 5, 1, 3, 4, 1, 3, 10, 1, 1, 1, 1, 4, 4, 8, 4, 10]
 
 # combines letters and points into a dictionary
@@ -23,6 +25,8 @@ player_to_words = {
 }
 
 def play_word(player, word):
+    """takes 2 arguments and either adds a word to the current list of an existing player
+    or creates a new player with a new list in the values"""
     if player in player_to_words:
         player_to_words[player].append(word.upper())
     else:
@@ -35,6 +39,7 @@ def play_word(player, word):
 player_to_points = {}
 
 def update_points_total():
+    """updates the points totals in player_to_points when called"""
     for player, words in player_to_words.items():
         player_points = 0
         for word in words:
@@ -60,3 +65,5 @@ print(play_word("newPlayer", "dogs"))
 # print(brownie_points)
 
 print(player_to_words)
+
+print(letters)
