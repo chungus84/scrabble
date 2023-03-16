@@ -12,7 +12,7 @@ def score_word(word):
     worth comparing to letters_to_points dictionary"""
     point_total = 0
     for letter in word.upper():
-        point_total += letters_to_points[letter]
+        point_total += letters_to_points.get(letter, 0)
     return point_total
 
 print(score_word("Hello"))
